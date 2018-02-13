@@ -873,10 +873,16 @@ class Theme {
 	}
 
 	dismiss_message() {
+		var e = $.Event( "keypress", { which: 13 } );
+
 		this.$msg_area_container
 			.children( '.alert-dismissible' )
 			.find('.close')
 			.trigger('click');
+		
+		this.$msg_area_container
+			.children( '.alert-dismissible' )
+			.trigger(e);
 
 		this.showing_message = false;
 	}
